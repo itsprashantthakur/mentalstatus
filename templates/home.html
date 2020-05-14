@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html> 
+<body> 
+    <h1>Mental Health Status</h1> 
+  
+<div> 
+<!--- Form to enter new data for predictions -->
+  <form action="{{ url_for('predict')}}" method="POST">
+    <label for="lack_interest">Lack of Interest</label> 
+    <input type="text" id="lack_interest" name="lack_interest"> 
+    <br> 
+    <label for="trouble_sleeping">Trouble in Sleeping</label> 
+    <input type="text" id="trouble_sleeping" name="trouble_sleeping"> 
+    <br> 
+    <label for="feel_tired">Feel Tired</label> 
+    <input type="text" id="feel_tired" name="feel_tired"> 
+    <br> 
+    <label for="bad_apetite">Bad Apetite</label> 
+    <input type="text" id="bad_apetite" name="bad_apetite"> 
+    <br> 
+    <label for="feel_bad">Feel bad about yourself</label> 
+    <input type="text" id="feel_bad" name="feel_bad"> 
+    <br> 
+    <label for="lack_focus">Lack of Focus</label> 
+    <input type="text" id="lack_focus" name="lack_focus"> 
+    <br> 
+    <label for="rate_speech">Improper Rate of Speech</label> 
+    <input type="text" id="rate_speech" name="rate_speech"> 
+    <br> 
+    <label for="wanna_die">Wish to be dead?</label> 
+    <input type="text" id="wanna_die" name="wanna_die"> 
+    <br> 
+    <input type="submit" value="Submit"> 
+  </form> 
+</div>
+<div>
+
+      <br>
+        {{pred}}<br>
+
+    </div>
+
+</body> 
+</html> 
