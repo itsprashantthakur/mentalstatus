@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Hello Mind</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+input[type=text], select {
+  width: 10%;
+  padding: 5px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #1abc9c; /* Same background as the header*/
+  color: white
+}
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Do you care about your mental health?</h1>
+  <p>Here you can answer a few questions and we can predict your mental health status using cutting edge machine learning algorithm.</p>
+</div>
+
+<div class="navbar">
+  <a href="https://www.nimh.nih.gov/health/find-help/index.shtml">Seek Help</a>
+  <a href="https://www.linkedin.com/in/itsprashantthakur" class="right">About Me</a>
+</div>
+  <div class="main">
+    <h2>Check your mental health status!</h2>
+    <h5>Tell us how often have you felt this way in the past week. Answer in numbers only for a valid result i.e. Lack of interest = 2 (If you have felt lack of interest in things twice in past week.</h5>
+    <div > 
+<!--- Form to enter new data for predictions -->
+  <form action="{{ url_for('predict')}}" method="POST">
+    
+    <label for="lack_interest">Lack of Interest in things</label>
+    <input type="text" id="lack_interest" name="lack_interest" placeholder="0">
+	<br>
+    <label for="trouble_sleeping">Trouble in sleeping, like can't sleep or sleep too much?</label>
+    <input type="text" id="trouble_sleeping" name="trouble_sleeping" placeholder="0">
+    <br>
+
+    <label for="feel_tired">Feel tired even if you haven't been doing anything as such?</label>
+    <input type="text" id="feel_tired" name="feel_tired" placeholder="0">
+<br>
+    <label for="bad_apetite">Bad apetite: Over eating or dont feel like eating?</label>
+    <input type="text" id="bad_apetite" name="bad_apetite" placeholder="0">
+<br>
+    <label for="feel_bad">Feel bad about yourself?</label>
+    <input type="text" id="feel_bad" name="feel_bad" placeholder="0">
+<br>
+    <label for="lack_focus">Couldn't concentrate on things?</label>
+    <input type="text" id="lack_focus" name="lack_focus" placeholder="0">
+<br>
+    <label for="rate_speech">Talk too fast or slow all of a sudden?</label>
+    <input type="text" id="rate_speech" name="rate_speech" placeholder="0">
+<br>
+    <label for="wanna_die">Wished you were dead?</label>
+    <input type="text" id="wanna_die" name="wanna_die" placeholder="0">
+    <br>
+    <input type="submit" value="Submit"> 
+  </form> 
+</div>
+<div>
+
+      <br>
+        {{pred}}<br>
+
+    </div>
+ <div class="footer">
+  <h5>Disclaimer: This is a machine learning app created with a dataset of 5000 observations and without any medical professional's help, not necessarily the predictions are going to be correct all the time.</h5>
+</div> 
+</body>
+</html>
