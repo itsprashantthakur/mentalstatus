@@ -55,15 +55,21 @@ body {
 }
 
 /* Main column */
-.main {   
+.main {
   flex: 70%;
   background-color: white;
   padding: 20px;
 }
-
+/* Footer */
+.footer {
+  padding: 5px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #1abc9c; /* Same background as the header*/
+  color: white
+}
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
-  .row {   
+  .row {
     flex-direction: column;
   }
 }
@@ -81,45 +87,45 @@ body {
 
 <div class="header">
   <h1>Do you care about your mental health?</h1>
-  <p>Here you can answer a few questions and we can predict your mental health status using cutting edge machine learning models.</p>
+  <p>Here you can answer a few questions and we can predict your mental health status using cutting edge machine learning algorithm.</p>
 </div>
 
 <div class="navbar">
-  <a href="https://www.unitedgmh.org/mental-health-support/india">Seek Help</a>
+  <a href="https://www.nimh.nih.gov/health/find-help/index.shtml">Seek Help</a>
   <a href="https://www.linkedin.com/in/itsprashantthakur" class="right">About Me</a>
 </div>
   <div class="main">
     <h2>Check your mental health status!</h2>
-    <h5>Tell us how often have you felt this way in the past week. Answer in numbers only for a valid result i.e. Lack of interest = 0 (If you have had no lack of interest in things in past week.)</h5>
-    <div > 
+    <h5>Tell us how often have you felt this way in the past week. Answer in numbers only for a valid result i.e. Lack of interest = 2 (If you have felt lack of interest in things twice in past week.</h5>
+    <div >
 <!--- Form to enter new data for predictions -->
   <form action="{{ url_for('predict')}}" method="POST">
-    <label for="lack_interest">Lack of Interest</label> 
-    <input type="text" id="lack_interest" name="lack_interest" placeholder="0" required="required"> 
-    <br> 
-    <label for="trouble_sleeping">Trouble in Sleeping</label> 
-    <input type="text" id="trouble_sleeping" name="trouble_sleeping" placeholder="0" required="required"> 
-    <br> 
-    <label for="feel_tired">Feel Tired</label> 
-    <input type="text" id="feel_tired" name="feel_tired" placeholder="0" required="required"> 
-    <br> 
-    <label for="bad_apetite">Bad Apetite</label> 
-    <input type="text" id="bad_apetite" name="bad_apetite" placeholder="0" required="required"> 
-    <br> 
-    <label for="feel_bad">Feel bad about yourself</label> 
-    <input type="text" id="feel_bad" name="feel_bad" placeholder="0" required="required"> 
-    <br> 
-    <label for="lack_focus">Lack of Focus</label> 
-    <input type="text" id="lack_focus" name="lack_focus" placeholder="0" required="required"> 
-    <br> 
-    <label for="rate_speech">Improper Rate of Speech</label> 
-    <input type="text" id="rate_speech" name="rate_speech" placeholder="0" required="required"> 
-    <br> 
-    <label for="wanna_die">Wish to be dead?</label> 
-    <input type="text" id="wanna_die" name="wanna_die" placeholder="0" required="required"> 
-    <br> 
-    <input type="submit" value="Submit"> 
-  </form> 
+    <label for="lack_interest">Lack of Interest</label>
+    <input type="text" id="lack_interest" name="lack_interest" placeholder="0" required="required">
+    <br>
+    <label for="trouble_sleeping">Trouble in Sleeping</label>
+    <input type="text" id="trouble_sleeping" name="trouble_sleeping" placeholder="0" required="required">
+    <br>
+    <label for="feel_tired">Feel Tired</label>
+    <input type="text" id="feel_tired" name="feel_tired" placeholder="0" required="required">
+    <br>
+    <label for="bad_apetite">Bad Apetite</label>
+    <input type="text" id="bad_apetite" name="bad_apetite" placeholder="0" required="required">
+    <br>
+    <label for="feel_bad">Feel bad about yourself</label>
+    <input type="text" id="feel_bad" name="feel_bad" placeholder="0" required="required">
+    <br>
+    <label for="lack_focus">Lack of Focus</label>
+    <input type="text" id="lack_focus" name="lack_focus" placeholder="0" required="required">
+    <br>
+    <label for="rate_speech">Improper Rate of Speech</label>
+    <input type="text" id="rate_speech" name="rate_speech" placeholder="0" required="required">
+    <br>
+    <label for="wanna_die">Wish to be dead?</label>
+    <input type="text" id="wanna_die" name="wanna_die" placeholder="0" required="required">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
 </div>
 <div>
 
@@ -127,6 +133,8 @@ body {
         {{pred}}<br>
 
     </div>
-
+ <div class="footer">
+  <h5>Disclaimer: This is just an app created with a dataset of 5000 observations and without any medical professional's help, not necessarily the predictions are going to be correct all the time.</h5>
+</div>
 </body>
 </html>
