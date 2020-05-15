@@ -8,7 +8,7 @@ model = pickle.load(open('logit_model.pkl','rb'))
 
 @app.route('/')
 def home():
-    return render_template("final.html")
+    return render_template("formfinal.html")
 
 
 @app.route('/predict', methods = ['POST', 'GET'])
@@ -21,9 +21,9 @@ def predict():
     output = '{0:.{1}f}'.format(prediction[0][1], 2)
     print(output)
     if output>str(0.5):
-        return render_template('final.html', pred='You might consider relaxing.\n Probability that you may feel depressed is {}'.format(output))
+        return render_template('formfinal.html', pred='You might consider relaxing.\n Probability that you may feel depressed is {}'.format(output))
     else:
-        return render_template('final.html', pred="You're safe.\n Probability that you may feel depressed is {}".format(output))
+        return render_template('formfinal.html', pred="You're safe.\n Probability that you may feel depressed is {}".format(output))
 
 
 if __name__ == '__main__':
